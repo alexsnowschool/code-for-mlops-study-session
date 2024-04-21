@@ -8,7 +8,7 @@
 
 ### Step 1: Kedro Project Setup
 
-1. Clone the project: `git clone https://github.com/d3m-labs/d3m-kedro-project.git`
+1. Clone the project: `git clone https://github.com/alexsnowschool/code-for-mlops-study-session.git`
 2. Change the directory: `cd kedro-dvc`
 3. Create conda environment: `conda create --name kedro-dvc python=3.11 -y`
 4. Activate the conda environment: `conda activate kedro-dvc`

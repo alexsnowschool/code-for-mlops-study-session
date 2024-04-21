@@ -9,5 +9,6 @@
 2. Change the directory: `cd kedro-dvc`
 3. Create conda environment: `conda create --name kedro-dvc python=3.11 -y`
 4. Activate the conda environment: `conda activate kedro-dvc`
-5. Install the project dependencies: `pip install -r requirements.txt
-6. Run the project: `kedro run`
+5. Install the project dependencies: `pip install -r requirements.txt`
+6. Create new branch: `git checkout -b kedro-dvc-demo`
+7. Run the project: `kedro new --starter=spaceflights-pandas`

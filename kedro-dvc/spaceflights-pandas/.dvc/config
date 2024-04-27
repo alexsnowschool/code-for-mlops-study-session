@@ -1,4 +1,7 @@
 [core]
-    remote = myremote
+    remote = s3-data-storage
 ['remote "myremote"']
     url = /tmp/dvcstore
+['remote "s3-data-storage"']
+    url = s3://dvc-artifacts/
+    endpointurl = http://localhost:9000/

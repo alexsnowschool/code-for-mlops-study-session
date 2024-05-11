@@ -1,5 +1,6 @@
 import logging
 from typing import Dict, Tuple
+import mlflow
 
 import pandas as pd
 from sklearn.linear_model import LinearRegression
@@ -35,7 +36,8 @@ def train_model(X_train: pd.DataFrame, y_train: pd.Series) -> LinearRegression:
         Trained model.
     """
     regressor = LinearRegression()
-    regressor.fit(X_train, y_train)
+    mlflow.sklearn.autolog()
+    regressor.fit(X_train, y_train) 
     return regressor
 
 

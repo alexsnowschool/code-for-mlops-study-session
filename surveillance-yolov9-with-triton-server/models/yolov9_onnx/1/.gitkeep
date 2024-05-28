@@ -1,0 +1,3 @@
+git lfs track '*.onnx'
+git add .gitattributes "*.onnx"
+git commit -m "Track .onnx files"

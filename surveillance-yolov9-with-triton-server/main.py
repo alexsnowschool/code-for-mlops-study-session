@@ -103,6 +103,6 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--image_path', type=str, default='./assets/bus.jpg')
     parser.add_argument('--model_name', type=str, default='yolov9_ensemble')
-    parser.add_argument('--url', type=str, default='119.134.23.56:8001')
+    parser.add_argument('--url', type=str, default='localhost:8001')
     args = parser.parse_args()
     main(args.image_path, args.model_name, args.url)

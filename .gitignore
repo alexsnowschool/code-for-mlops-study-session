@@ -243,3 +243,6 @@ pyrightconfig.json
 
 # Ignore Cache Files
 *.pyc
+.dvc
+data/
+conf/

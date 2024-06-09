@@ -1,7 +1,7 @@
 name: "postprocess"
 backend: "python"
 max_batch_size: 0 
-    input [
+input [
     {
         name: "INPUT_0"
         data_type: TYPE_FP32

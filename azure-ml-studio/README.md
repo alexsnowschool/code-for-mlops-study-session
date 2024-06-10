@@ -17,7 +17,17 @@
 7. Run the project: `kedro new --starter=spaceflights`
 8. Change the directory: `cd spaceflights`
 9. Change the `required_cloud_info.sh` file with your Azure credentials and run the file: `source required_cloud_info.sh`
-10. Run the project: `kedro azureml init  $SUBSCRIPTION_ID $RESOURCE_GROUP $WORKSPACE_NAME $EXPERIMENT_NAME $CLUSTER_NAME --docker-image=kedro_spaceflights --use-pipeline-data-passing`
+
+10. Run the project: `kedro azureml init  $SUBSCRIPTION_ID $RESOURCE_GROUP $WORKSPACE_NAME $EXPERIMENT_NAME $CLUSTER_NAME --docker-image=arralyze.azurecr.io/kedro_spaceflights:latest --use-pipeline-data-passing`
+```bash
+# For docker image flow (1.), use the following init command:
+ kedro azureml init <AZURE_SUBSCRIPTION_ID> <AZURE_RESOURCE_GROUP> <AML_WORKSPACE_NAME> <EXPERIMENT_NAME> <COMPUTE_NAME> \
+ --docker-image <YOUR_ARC>.azurecr.io/<IMAGE_NAME>:latest -a <STORAGE_ACCOUNT_NAME> -c <STORAGE_CONTAINER_NAME>
+
+# For code upload flow (2.), use the following init command:
+kedro azureml init <AZURE_SUBSCRIPTION_ID> <AZURE_RESOURCE_GROUP> <AML_WORKSPACE_NAME> <EXPERIMENT_NAME> <COMPUTE_NAME> \
+ --aml-env <YOUR_ARC>.azurecr.io/<IMAGE_NAME>:latest -a <STORAGE_ACCOUNT_NAME> -c <STORAGE_CONTAINER_NAME>
+```
 11. Double check the `azure-ml-studio/spaceflights/conf/base/azureml.yml` file to ensure that the `azureml.yml` is correctly configured.
 12. Run to generate docker file for kedro project: `kedro docker init`
 13. Build the docker image: `kedro docker build --docker-args "--build-arg=BASE_IMAGE=python:3.9" --image=arralyze.azurecr.io/kedro_spaceflights:latest`

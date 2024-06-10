@@ -1,0 +1,45 @@
+azure:
+  # Azure subscription ID to use
+  subscription_id: "<your_subscription_id>"
+  # Azure ML Experiment Name
+  experiment_name: "<your_experiment_name>"
+  # Azure resource group to use
+  resource_group: "<your_resource_group>"
+  # Azure ML Workspace name
+  workspace_name: "<your_workspace_name>"
+  # Azure ML Environment to use during pipeline execution
+  environment_name: ~
+  # Path to directory to upload, or null to disable code upload
+  code_directory: ~
+  # Path to the directory in the Docker image to run the code from
+  # Ignored when code_directory is set
+  working_directory: /home/kedro_docker
+  # Use Azure ML pipeline data passing instead of temporary storage
+  pipeline_data_passing:
+    enabled: True # disabled by default
+
+  # Temporary storage settings - this is used to pass some data between steps
+  # if the data is not specified in the catalog directly
+  temporary_storage:
+    # Azure Storage account name, where the temp data should be stored
+    # It's recommended to set Lifecycle management rule for storage container, to avoid costs of long-term storage
+    # of the temporary data. Temporary data will be stored under abfs://<containter>/kedro-azureml-temp path
+    # See https://docs.microsoft.com/en-us/azure/storage/blobs/lifecycle-management-policy-configure?tabs=azure-portal
+    account_name: "<your_storage_account>"
+    # Name of the storage container
+    container: "<your_storage_container>"
+  compute:
+    # Azure compute used for running kedro jobs.
+    # Additional compute cluster can be defined here. Individual nodes can reference specific compute clusters by adding
+    # the section title (e.g. <your_node_tag>) as a node_tag to their tags list. Nodes without a tag will run on
+    # __default__ cluster.
+    __default__:
+      cluster_name: "<your_compute_cluster>"
+    # <your_node_tag>:
+    #   cluster_name: "<your_cluster_name>"
+docker:
+  # This option is for backward compatibility and will be removed in the future versions
+  # We suggest using the Azure environment instead
+  # See https://kedro-azureml.readthedocs.io/en/0.2.1/source/03_quickstart.html
+  # Docker image to use during pipeline execution
+  image: arralyze.azurecr.io/kedro_spaceflights:latest # Change this to your Docker image 

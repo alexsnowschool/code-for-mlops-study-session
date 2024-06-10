@@ -246,3 +246,4 @@ pyrightconfig.json
 .dvc
 data/
 conf/
+azure-ml-studio/spaceflights/

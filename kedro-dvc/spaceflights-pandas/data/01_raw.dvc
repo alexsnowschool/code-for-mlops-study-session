@@ -1,6 +1,0 @@
-outs:
-- md5: gi.dir
-  size: 1749077
-  nfiles: 5
-  hash: md5
-  path: 01_raw
